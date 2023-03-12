@@ -1,0 +1,39 @@
+﻿@model WeatherModel
+
+@{
+    ViewBag.Title = "Информация за времето";
+}
+
+<style> body { background-image: url('/Content/images/sky100.png'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Weather", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Haskovo" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери времето</button>
+    }
+
+    @if (Model.Weather != null)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <b>Град: </b><br />@Model.Weather.name<br /><br />
+                <b>Държава: </b><br />@Model.Weather.sys.country
+            </div>
+            <div class="col-md-3">
+                <b>Температура: </b><br />@Model.Weather.main.temp° C<br /><br />
+                <b>Усеща се като: </b><br />@Model.Weather.main.feels_like° C
+            </div>
+            <div class="col-md-3">
+                <b>Влажност: </b><br />@Model.Weather.main.humidity%<br /><br />
+                <b>Вятър: </b><br />@Model.Weather.wind.speed км/ч
+            </div>
+            <div class="col-md-3">
+                <b>Описание: </b><br />@Model.Weather.weather[0].description
+            </div>
+        </div>
+    }
+</div>

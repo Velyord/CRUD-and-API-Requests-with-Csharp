@@ -1,0 +1,40 @@
+﻿@model ArtistModel
+
+@{
+    ViewBag.Title = "Информация за музикант";
+}
+
+<style> body { background-image: url('/Content/images/music100.png'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Artist", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.ArtistName, new { @class = "form-control", @placeholder = "Daft_Punk" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери музикант</button>
+    }
+
+    @if (Model.Artist != null)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                <b>Име: </b><br />@Model.Artist.artists[0].strArtist<br /><br />
+                <b>Пол: </b><br />@Model.Artist.artists[0].strGender<br /><br />
+                <b>Брой хора: </b><br />@Model.Artist.artists[0].intMembers<br /><br />
+                <b>Държава: </b><br />@Model.Artist.artists[0].strCountry<br /><br />
+                <b>Образ: </b><br /><br /><img src="@Model.Artist.artists[0].strArtistThumb" style="height:200px" />
+            </div>
+            <div class="col-md-2">
+                <b>Формиран: </b><br />@Model.Artist.artists[0].intFormedYear г.<br /><br />
+                <b>Стил: </b><br />@Model.Artist.artists[0].strStyle<br /><br />
+                <b>Жанр: </b><br />@Model.Artist.artists[0].strGenre<br /><br />
+                <b>Настроение: </b><br />@Model.Artist.artists[0].strMood<br /><br />
+            </div>
+            <div class="col-md-8">
+                <b>Биография: </b><br /><br />@Model.Artist.artists[0].strBiographyEN
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿@model MovieModel
+
+@{
+    ViewBag.Title = "Информация за филм";
+}
+
+<style> body { background-image: url('/Content/images/movie100.png'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Movie", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "365_days" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери филм</button>
+    }
+
+    @if (Model.Movie != null)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <b>Заглавие: </b><br />@Model.Movie.Title<br /><br />
+                <b>Година: </b><br />@Model.Movie.Released г.<br /><br />
+                <b>Държава: </b><br />@Model.Movie.Country<br /><br />
+                <b>Плакат: </b><br /><br /><img src="@Model.Movie.Poster" style="height:200px;">
+            </div>
+            <div class="col-md-3">
+                <b>Продължителност: </b><br />@Model.Movie.Runtime<br /><br />
+                <b>Жанр: </b><br />@Model.Movie.Genre<br /><br />
+                <b>Награди: </b><br />@Model.Movie.Awards<br /><br />
+                <b>Рейтинг: </b><br />@Model.Movie.imdbRating
+            </div>
+            <div class="col-md-3">
+                <b>Актьори: </b><br />@Model.Movie.Actors<br /><br />
+                <b>Директор: </b><br />@Model.Movie.Director<br /><br />
+                <b>Автор: </b><br />@Model.Movie.Writer
+            </div>
+            <div class="col-md-3">
+                <b>Сюжет: </b><br />@Model.Movie.Plot
+            </div>
+        </div>
+    }
+</div>

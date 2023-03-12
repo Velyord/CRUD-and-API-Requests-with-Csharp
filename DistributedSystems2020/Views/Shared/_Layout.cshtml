@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" type="text/css" href="~/Content/test.css">
+
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        footer, h2 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .boxing {
+            padding: 30px;
+            border-radius: 6px;
+            color: #fff;
+            background-color: rgba(51,51,51,0.75);
+        }
+
+        a {
+            color: #0c99f7;
+        }
+
+            a:hover {
+                color: #0974bd;
+                text-decoration: none;
+            }
+
+        th, b {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("iKratko's eBooks", "Index", "Cars", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("е-Книги", "Index", "Cars")</li>
+                    <li>@Html.ActionLink("Винетки", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Време", "Weather", "Home")</li>
+                    <li>@Html.ActionLink("Валути", "Exchange", "Home")</li>
+                    <li>@Html.ActionLink("Музиканти", "Artist", "Home")</li>
+                    <li>@Html.ActionLink("Филми", "Movie", "Home")</li>
+                    <li>@Html.ActionLink("Супергерои", "Hero", "Home")</li>
+
+                    <li>@Html.ActionLink("За нас", "About", "Home")</li>
+                    <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - iKratko's eBooks. Всички права са запазени.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,21 @@
+Създайте web приложение, което да разполага с:
+
+1. Контролер за работа с външни API, поне 3, от който минимум 1 да изисква authenticationKey/token (youtube, google maps, weather api, etc).
+2. CRUD Контролер за работа с model (books, cars, students, etc).
+3. Филтрация на данните от модела по 1 или 2 параметъра.
++ Бонус точки за дизайн и оформление.
+
+Тематиката на самото приложение е по избор (сайт за коли, книги, дрехи и т.н.)
+
+Помощни материали:
+1. Контролер за работа с външни API
+https://workingmouse.com.au/third-party-apis/what-is-an-api-first-and-third-party-apis
+
+Примерни API, които може да използвате:
+https://developers.google.com/calendar/
+https://developers.google.com/maps/documentation/
+https://openweathermap.org/api
+https://blog.rapidapi.com/access-global-weather-data-with-these-weather-apis/
+
+2. & 3. CRUD контролер и филтрация
+https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started

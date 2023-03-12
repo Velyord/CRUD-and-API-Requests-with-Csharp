@@ -1,0 +1,33 @@
+﻿@model NamedayModel
+
+@{
+    ViewBag.Title = "Кога имаш имен ден?";
+}
+
+<style> body { background-image: url('/Content/images/calendar.jpg'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Nameday", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Ivan" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери имен ден</button>
+    }
+
+    @if (Model.Nameday != null)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <b>Ден: </b><br />@Model.Nameday.results[0].day<br />
+            </div>
+            <div class="col-md-4">
+                <b>Месец: </b><br />@Model.Nameday.results[0].month<br />
+            </div>
+            <div class="col-md-4">
+                <b>Именици: </b><br />@Model.Nameday.results[0].name<br />
+            </div>
+        </div>
+    }
+</div>

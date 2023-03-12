@@ -1,0 +1,33 @@
+﻿@model ExchangeModel
+
+@{
+    ViewBag.Title = "Конвертиране на валути";
+}
+
+<style> body { background-image: url('/Content/images/money100.png'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Exchange", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.Currency, new { @class = "form-control", @placeholder = "EUR" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери валута</button>
+    }
+
+    @if (Model.Exchange != null)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <b>@Model.Exchange.Base: </b><br />@Model.Exchange.amount<br />
+            </div>
+            <div class="col-md-4">
+                <b>BGN: </b><br />@Model.Exchange.rates.BGN лв.<br />
+            </div>
+            <div class="col-md-4">
+                <b>Дата: </b><br />@Model.Exchange.date<br />
+            </div>
+        </div>
+    }
+</div>

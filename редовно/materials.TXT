@@ -1,0 +1,14 @@
+Day 1:
+	https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started
+	https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-controller
+	https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-view
+	https://check.bgtoll.bg/#/ + https://www.newtonsoft.com/json
+
+Day 2:
+	Контролер за работа с външни API
+		https://workingmouse.com.au/third-party-apis/what-is-an-api-first-and-third-party-apis
+	Примерни API, които може да използвате:
+		https://developers.google.com/calendar/
+		https://developers.google.com/maps/documentation/
+		https://openweathermap.org/api
+		https://blog.rapidapi.com/access-global-weather-data-with-these-weather-apis/

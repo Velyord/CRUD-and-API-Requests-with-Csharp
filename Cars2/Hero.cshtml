@@ -1,0 +1,49 @@
+﻿@model HeroModel
+
+@{
+    ViewBag.Title = "Информация за супергерой";
+}
+
+<style> body { background-image: url('/Content/images/hero100.png'); } </style>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Hero", "Home", FormMethod.Get))
+    {
+        @Html.TextBoxFor(x => x.Hero, new { @class = "form-control", @placeholder = "iron_man" })
+
+        <button type="submit" class="btn btn-success" style="margin-bottom:20px">Провери супергерой</button>
+    }
+
+    @if (Model.SuperHero != null)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <b>Име: </b><br />@Model.SuperHero.results[0].name<br /><br />
+                <b>Издател: </b><br />@Model.SuperHero.results[0].biography.publisher<br /><br />
+                <b>Добър/Лош: </b><br />@Model.SuperHero.results[0].biography.alignment<br /><br />
+                <b>Образ: </b><br /><br /><img src="@Model.SuperHero.results[0].image.url" style="height:200px;">
+            </div>
+            <div class="col-md-3">
+                <b>Пол: </b><br />@Model.SuperHero.results[0].appearance.gender<br /><br />
+                <b>Раса: </b><br />@Model.SuperHero.results[0].appearance.race<br /><br />
+                <b>Цвят на очите: </b><br />@Model.SuperHero.results[0].appearance.eye_color<br /><br />
+                <b>Цвят на косата: </b><br />@Model.SuperHero.results[0].appearance.hair_color
+            </div>
+            <div class="col-md-3">
+                <b>Истинскo име: </b><br />@Model.SuperHero.results[0].biography.full_name<br /><br />
+                <b>Град на раждане: </b><br />@Model.SuperHero.results[0].biography.place_of_birth<br /><br />
+                <b>Професия: </b><br />@Model.SuperHero.results[0].work.occupation in @Model.SuperHero.results[0].work.Base
+            </div>
+            <div class="col-md-3">
+                <b>Интелект: </b>@Model.SuperHero.results[0].powerstats.intelligence<br />
+                <b>Сила: </b>@Model.SuperHero.results[0].powerstats.strength<br />
+                <b>Бързина: </b>@Model.SuperHero.results[0].powerstats.speed<br />
+                <b>Издръжливост: </b>@Model.SuperHero.results[0].powerstats.durability<br />
+                <b>Мощност: </b>@Model.SuperHero.results[0].powerstats.power<br />
+                <b>Борбеност: </b>@Model.SuperHero.results[0].powerstats.combat
+            </div>
+        </div>
+    }
+</div>

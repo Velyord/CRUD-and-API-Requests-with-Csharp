@@ -1,0 +1,55 @@
+﻿@model DistributedSystems2020.Models.IndexViewModel
+@{
+    ViewBag.Title = "iKratko's eBooks - Чети навсякъде по всяко време";
+}
+
+<style> body { background-image: url('/Content/images/road100.png'); } </style>
+
+<h2>Проверка на винетка</h2>
+
+<div class="boxing" style="margin-top:20px">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.TextBox("id", "", new { @class = "form-control", @placeholder = "CA5372XT" })
+        <input type="submit" class="btn btn-success" value="Провери винетка" style="margin-bottom:20px" />
+    }
+
+    @if (Model.BgToll != null)
+    {
+        if (Model.BgToll.ok == true)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Регистрационен номер: </b><br />
+                    @Model.BgToll.vignette.licensePlateNumber<br /><br />
+                    <b>Държава</b><br />
+                    @Model.BgToll.vignette.country
+                </div>
+                <div class="col-md-3">
+                    <b>Статус: </b><br />
+                    @Model.BgToll.vignette.status<br /><br />
+                    <b>Номер: </b><br />
+                    @Model.BgToll.vignette.vignetteNumber<br /><br />
+                    <b>Цена: </b><br />
+                    @Model.BgToll.vignette.price лв.
+                </div>
+                <div class="col-md-3">
+                    <b>Начална дата на валидност: </b>
+                    @Model.BgToll.vignette.validityDateFromFormated<br /><br />
+                    <b>Крайна дата на валидност: </b><br />
+                    @Model.BgToll.vignette.validityDateToFormated
+                </div>
+                                <div class="col-md-3">
+                    <b>Тип автомобил: </b><br />
+                    @Model.BgToll.vignette.vehicleClass
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Няма намерена валидна винетка!
+            </div>
+        }
+    }
+</div>
